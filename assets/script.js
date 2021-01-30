@@ -3,6 +3,10 @@ $(document).ready(function () {
     // psuedocode
     var ingredients = [];
     var storedIngredients = JSON.parse(localStorage.getItem("ingredients"));
+    var missingCount
+    var missingName = []
+    var missingPrice = []
+    var missingTotal
     function initIngredients() {
         if (storedIngredients != null) {
             ingredients = storedIngredients;
@@ -27,15 +31,31 @@ $(document).ready(function () {
             method: "GET"
         }).then(function (res) {
             console.log(res);
-            let recipeName = res[0].title;
-            let recipeImgURL = res[0].image;
-            console.log(recipeName);
-            console.log(recipeImgURL)
+
+
+            missingCount = res[3].missedIngredientCount
+            for (i = 0; i < missingCount; i++) {
+                missingName.push(res[3].missedIngredients[i].name)
+            }
+            console.log(missingName)
+
+            
+            for (i = 0; i < 5; i++) {
+                var recipeCard = $("<div>")
+                let recipeName = res[i].title;
+                let recipeImgURL = res[i].image;
+                var pName = $("<p>").text(recipeName)
+                recipeCard.attr("class", "recipe-card")
+                recipeCard.append(pName)
+
+                $("#col-2").prepend(recipeCard)
+            }
+
 
         });
     });
 
-    $("#clear-results-button").on("click", function() {
+    $("#clear-results-button").on("click", function () {
         localStorage.setItem("ingredients", null)
         initIngredients()
     })
