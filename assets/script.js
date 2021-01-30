@@ -7,7 +7,7 @@ $(document).ready(function () {
         if (storedIngredients != null) {
             ingredients = storedIngredients;
         } else if (storedIngredients === null) {
-
+            ingredients = []
         };
     };
     // Create local storage to store our user's ingredient list
@@ -29,6 +29,11 @@ $(document).ready(function () {
             console.log(res);
         });
     });
+
+    $("#clear-results-button").on("click", function() {
+        localStorage.setItem("ingredients", null)
+        initIngredients()
+    })
 
     $("#col-2").on("click", function () { // this event listener will actually need to be on the div id for each recipe card, which is appended by the spooancular API section
 
