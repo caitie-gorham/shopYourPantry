@@ -11,7 +11,7 @@ $(document).ready(function () {
         if (storedIngredients != null) {
             ingredients = storedIngredients;
         } else if (storedIngredients === null) {
-            ingredients = []
+            
         };
     };
     // Create local storage to store our user's ingredient list
@@ -55,7 +55,9 @@ $(document).ready(function () {
 
     $("#clear-results-button").on("click", function () {
         localStorage.setItem("ingredients", null)
+        ingredients = []
         initIngredients()
+        console.log(ingredients)
     })
 
     $(document).on("click", ".recipe-card", function() { 
