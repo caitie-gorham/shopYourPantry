@@ -45,13 +45,11 @@ $(document).ready(function () {
                 let recipeName = res[i].title;
                 let recipeImgURL = res[i].image;
                 var pName = $("<p>").text(recipeName)
-                recipeCard.attr("class", "recipe-card")
+                recipeCard.attr("class", "box recipe-card")
                 recipeCard.append(pName)
 
                 $("#col-2").prepend(recipeCard)
             }
-
-
         });
     });
 
@@ -60,22 +58,22 @@ $(document).ready(function () {
         initIngredients()
     })
 
-    $("#col-2").on("click", function () { // this event listener will actually need to be on the div id for each recipe card, which is appended by the spooancular API section
-
+    $(document).on("click", ".recipe-card", function() { 
         // generate list of ingredients still needed 
 
+
         // ajax API call for YouTube API to populate $("#video-thmb")
-        let recipeTitle = "pasta"
         $.ajax({
             url: "https://www.googleapis.com/youtube/v3/search",
             method: "GET",
             data: {
                 key: "AIzaSyBwUYS50KQBBjTpXf3LI20SO3rfcyQdYHE",
-                q: recipeTitle,
+                q: recipeName,
                 part: "snippet",
                 type: "video"
             }
         }).then(function (response) {
+            console.log(recipeName)
             console.log(response)
             console.log(response.items[0].snippet.title)
             console.log(response.items[0].snippet.thumbnails.default.url)
