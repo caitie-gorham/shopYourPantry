@@ -27,6 +27,11 @@ $(document).ready(function () {
             method: "GET"
         }).then(function (res) {
             console.log(res);
+            let recipeName = res[0].title;
+            let recipeImgURL = res[0].image;
+            console.log(recipeName);
+            console.log(recipeImgURL)
+
         });
     });
 
