@@ -1,3 +1,5 @@
+$(document).ready(function() {
+
 // psuedocode
 var ingredients = []
 // Create local storage to store our user's ingredient list
@@ -22,6 +24,24 @@ $("#recip-button").on("click", function () {
 
 // create event listener for recipe cards
 
-// ajax API call for YouTube API to populate YouTube return box
+$("#col-2").on("click", function(){ // this event listener will actually need to be on the div id for each recipe card, which is appended by the spooancular API section
+    
+    // generate list of ingredients still needed 
 
-// generate list of ingredients still needed
+    // ajax API call for YouTube API to populate $("#video-thmb")
+    let recipeTitle = "pasta"
+    $.ajax({
+        url: "https://www.googleapis.com/youtube/v3/search",
+        method: "GET",
+        data: {
+            key: "AIzaSyBwUYS50KQBBjTpXf3LI20SO3rfcyQdYHE",
+            q: recipeTitle,
+            part: "snippet",
+            type: "video"
+        }
+    }).then(function(response){
+        console.log(response)
+    })
+});
+
+});
