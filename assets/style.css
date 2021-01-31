@@ -8,6 +8,28 @@
   color: white;
   margin-bottom: 30px;
 }
-  
+
+#pantry-container {
+    width: 300px;
+}
+
+#ing-input {
+    width: 300px;
+}
+
+#ing-here {
+    background-color: gray;
+    border-radius: 5px;
+    height: 300px;
+    width: 300px;
+}
+
+#recip-button {
+    margin: auto;
+}
+
+#clear-results-button {
+    margin: auto;
+}
 
 
