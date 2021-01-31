@@ -55,7 +55,7 @@ $(document).ready(function () {
     });
 
     $("#clear-results-button").on("click", function () {
-        localStorage.setItem("ingredients", null)
+        localStorage.removeItem("ingredients")
         ingredients = []
         initIngredients()
         console.log(ingredients)
