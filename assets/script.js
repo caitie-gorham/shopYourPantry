@@ -45,6 +45,7 @@ $(document).ready(function () {
                 let recipeName = res[i].title;
                 let recipeImgURL = res[i].image;
                 var pName = $("<p>").text(recipeName)
+                pName.attr("class", "title-text")
                 recipeCard.attr("class", "box recipe-card")
                 recipeCard.append(pName)
 
@@ -63,8 +64,8 @@ $(document).ready(function () {
     $(document).on("click", ".recipe-card", function() { 
         // generate list of ingredients still needed 
 
-
         // ajax API call for YouTube API to populate $("#video-thmb")
+        let recipeName = $(this).text()
         $.ajax({
             url: "https://www.googleapis.com/youtube/v3/search",
             method: "GET",
@@ -75,10 +76,12 @@ $(document).ready(function () {
                 type: "video"
             }
         }).then(function (response) {
-            console.log(recipeName)
-            console.log(response)
-            console.log(response.items[0].snippet.title)
-            console.log(response.items[0].snippet.thumbnails.default.url)
+            let vidTitle = response.items[0].snippet.title
+            let vidTitleDiv = $("<h4>").text(vidTitle)
+            let vidIcon = response.items[0].snippet.thumbnails.default.url
+            let vidIconDiv = $("<img>").attr("src", vidIcon)
+            $("#youtube-results").append(vidTitleDiv, vidIconDiv)
+
         })
     });
     initIngredients();
