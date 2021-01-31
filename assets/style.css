@@ -21,7 +21,6 @@
 #ing-here {
     background-color: gray;
     border-radius: 5px;
-    height: 300px;
     width: 300px;
 }
 
@@ -32,9 +31,9 @@
 #clear-results-button {
     margin: auto;
 }
-  
+
 .ing-card {
   text-transform: capitalize;
+  margin: 10px;
+  padding: 5px;
 }
-
-
