@@ -8,17 +8,37 @@ $(document).ready(function () {
     var missingPrice = []
     var missingTotal
     function initIngredients() {
+        storedIngredients = JSON.parse(localStorage.getItem("ingredients"));
         if (storedIngredients != null) {
             ingredients = storedIngredients;
+            writeIngredients()
         } else if (storedIngredients === null) {
-            
+
         };
     };
+
+    function writeIngredients() {
+        $("#ing-here").text("")
+        for (i = 0; i < ingredients.length; i++) {
+            var ingHere = $("#ing-here")
+            var ingDiv = $("<div>")
+            var ingCard = $("<p>").text(ingredients[i])
+            ingCard.attr("class", "box ing-card")
+            ingDiv.append(ingCard)
+            ingHere.prepend(ingDiv)
+        }
+    }
     // Create local storage to store our user's ingredient list
     $("#ing-button").on("click", function () {
-        ingredients.push($("#ing-input").val());
-        $("#ing-input").val("");
-        localStorage.setItem("ingredients", JSON.stringify(ingredients));
+        if ($("#ing-input").val() != "") {
+            ingredients.push($("#ing-input").val());
+            $("#ing-input").val("");
+            localStorage.setItem("ingredients", JSON.stringify(ingredients));
+            writeIngredients()
+        } else if ($("#ing-input").val() === "") {
+            alert("woah")
+        }
+
         console.log(ingredients);
     });
     // create event listener for search button 
@@ -39,7 +59,7 @@ $(document).ready(function () {
             }
             console.log(missingName)
 
-            
+
             for (i = 0; i < 5; i++) {
                 var recipeCard = $("<div>")
                 let recipeName = res[i].title;
@@ -57,11 +77,12 @@ $(document).ready(function () {
     $("#clear-results-button").on("click", function () {
         localStorage.removeItem("ingredients")
         ingredients = []
+        $("#ing-here").text("")
         initIngredients()
         console.log(ingredients)
     })
 
-    $(document).on("click", ".recipe-card", function() { 
+    $(document).on("click", ".recipe-card", function () {
         // generate list of ingredients still needed 
 
         // ajax API call for YouTube API to populate $("#video-thmb")
