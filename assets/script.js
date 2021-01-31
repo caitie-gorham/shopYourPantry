@@ -32,13 +32,10 @@ $(document).ready(function () {
         }).then(function (res) {
             console.log(res);
 
-
-            missingCount = res[3].missedIngredientCount
-            for (i = 0; i < missingCount; i++) {
-                missingName.push(res[3].missedIngredients[i].name)
-            }
-            console.log(missingName)
-
+            // missingCount = res[3].missedIngredientCount
+            // for (i = 0; i < missingCount; i++) {
+            //     missingName.push(res[3].missedIngredients[i].name)
+            // }
             
             for (i = 0; i < 5; i++) {
                 var recipeCard = $("<div>")
@@ -48,8 +45,12 @@ $(document).ready(function () {
                 pName.attr("class", "title-text")
                 recipeCard.attr("class", "box recipe-card")
                 recipeCard.append(pName)
+                
+                var missingIngredientsArray1 = res[i].missedIngredients[0].name
+                console.log(missingIngredientsArray1)
 
                 $("#col-2").prepend(recipeCard)
+
             }
         });
     });
