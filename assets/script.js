@@ -52,14 +52,6 @@ $(document).ready(function () {
         }).then(function (res) {
             console.log(res);
 
-
-            missingCount = res[3].missedIngredientCount
-            for (i = 0; i < missingCount; i++) {
-                missingName.push(res[3].missedIngredients[i].name)
-            }
-            console.log(missingName)
-
-
             for (i = 0; i < 5; i++) {
                 var recipeCard = $("<div>")
                 let recipeName = res[i].title;
@@ -67,10 +59,23 @@ $(document).ready(function () {
                 var pName = $("<p>").text(recipeName)
                 pName.attr("class", "title-text")
                 recipeCard.attr("class", "box recipe-card")
+                recipeCard.attr("id", i)
                 recipeCard.append(pName)
 
+
+
+
                 $("#col-2").prepend(recipeCard)
+
             }
+            $(document).on("click", ".recipe-card", function () {
+                var recipeNumb = $(this).attr("id")
+                var missedList = []
+                for (i = 0; i < res[recipeNumb].missedIngredients.length; i++) {
+                    missedList.push(res[recipeNumb].missedIngredients[i].name)
+                }
+                console.log(missedList)
+            })
         });
     });
 
