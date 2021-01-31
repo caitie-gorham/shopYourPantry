@@ -1,4 +1,4 @@
-.header{
+.header {
   font-family: montserrat;
   font-size: 35px;
   font-weight: bold;
@@ -8,6 +8,7 @@
   color: white;
   margin-bottom: 30px;
 }
+
 
 #pantry-container {
     width: 300px;
@@ -30,6 +31,10 @@
 
 #clear-results-button {
     margin: auto;
+}
+  
+.ing-card {
+  text-transform: capitalize;
 }
 
 
