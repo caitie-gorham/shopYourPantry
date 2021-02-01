@@ -1,6 +1,13 @@
-*{
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    text-decoration: none;
+.header{
+  font-family: montserrat;
+  font-size: 35px;
+  font-weight: bold;
+  text-align: center;
+  background-color: #00b3b3;
+  padding: 30px;
+  color: white;
+  margin-bottom: 30px;
 }
+  
+
+
