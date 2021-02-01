@@ -22,28 +22,36 @@
     </nav>
 
     <div id="body" class="columns">
-        <div class="container-fluid">
-            <div id="col-1" class="column">
-                <div id="search-div" class="columns">
-                    <div id="search-bar">
-                        <input id="ing-input" class="input is-primary column" type="text" placeholder="Primary input">
-                        <button id="ing-button" class="button is-primary column">Button</button>
+        <div class="container">
+            <div id="col-1" class="column is-two-fifths">
+                <section id="search-div">
+                    <div id="search-bar" class="row">
+                        <input id="ing-input" class="input is-primary column m-2" type="text" placeholder="Enter Ingredients">
+                        <button id="ing-button" class="button is-primary column m-2">Add Ingredients</button>
                     </div>
-                </div>
-                <div id="pantry">
-                </div>
-                <div id="recipe-search">
-                    <button id="recip-button" class="button is-primary column">Button</button>
-                </div>
-            </div>
-        </div>
-        <div class="container-fluid">
-            <div id="col-2" class="column">
+                </section>
 
+                <section id="pantry" class="row m-2">
+                    <div class="card">
+
+                    </div>
+                </section>
+
+                <div id="recipe-search" class="row m-2">
+                    <button id="recip-button" class="button is-primary column">Search Recipes</button>
+                </div>
+
+                <div id="clear-results" class="row m-2">
+                    <button id="clear-results-button" class="button is-primary column">Clear Results</button>
+                </div>
             </div>
         </div>
         <div class="container">
-            <div id="col-3" class="column">
+            <div id="col-2" class="column is-three-quarters">
+            </div>
+        </div>
+        <div class="container">
+            <div id="col-3" class="column is-one-third">
                 <div id="recip-ing">
 
                 </div>
