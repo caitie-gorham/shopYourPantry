@@ -46,6 +46,7 @@ $(document).ready(function () {
     // ajax API call for Spponacular API to populate recipe cards
     $("#recip-button").on("click", function () {
         var spoonURL = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + ingredients + "&ranking=2&apiKey=83b505ff599e49239f3310bad1407b22";
+        $("#col-2").attr("class", "column")
         $.ajax({
             url: spoonURL,
             method: "GET"
