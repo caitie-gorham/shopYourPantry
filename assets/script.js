@@ -106,7 +106,10 @@ $(document).ready(function () {
             let vidTitle = response.items[0].snippet.title
             let vidTitleDiv = $("<h4>").text(vidTitle)
             let vidIcon = response.items[0].snippet.thumbnails.default.url
-            let vidIconDiv = $("<img>").attr("src", vidIcon)
+            let vidID = response.items[0].id.videoId
+            let vidLink = "https://youtube.com/watch?v=" + vidID
+            let vidIconDiv = $("<a>").attr("href", vidLink)
+            vidIconDiv.append($("<img>").attr("src", vidIcon))
             $("#youtube-results").append(vidTitleDiv, vidIconDiv)
 
         })
