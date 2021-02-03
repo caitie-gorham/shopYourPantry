@@ -122,15 +122,37 @@ $(document).ready(function () {
                 type: "video"
             }
         }).then(function (response) {
-            let vidTitle = response.items[0].snippet.title
-            let vidTitleDiv = $("<h4>").text(vidTitle)
-            let vidIcon = response.items[0].snippet.thumbnails.default.url
-            let vidID = response.items[0].id.videoId
-            let vidLink = "https://youtube.com/watch?v=" + vidID
-            let vidIconDiv = $("<a>").attr("href", vidLink)
-            vidIconDiv.append($("<img>").attr("src", vidIcon))
-            $("#youtube-results").append(vidTitleDiv, vidIconDiv)
+            $("#video-buttons").attr("class", "buttons")
+            console.log(response)
+            var n = 0
+            function writeVideo() {
+                $("#youtube-results").text("")
+                let vidTitle = response.items[n].snippet.title
+                let vidTitleDiv = $("<h4>").text(vidTitle)
+                let vidIcon = response.items[n].snippet.thumbnails.default.url
+                let vidID = response.items[n].id.videoId
+                let vidLink = "https://youtube.com/watch?v=" + vidID
+                let vidIconDiv = $("<a>").attr("href", vidLink)
+                vidIconDiv.append($("<img>").attr("src", vidIcon))
+                $("#youtube-results").append(vidIconDiv, vidTitleDiv)
+            }
+            writeVideo()
+            $("#back-button").on("click", function () {
+                if (n > 0) {
+                    n--
+                    writeVideo()
+                } else if (n === 0) {
 
+                }
+            })
+            $("#next-button").on("click", function () {
+                if (n < 4) {
+                    n++
+                    writeVideo()
+                } else if (n === 4) {
+
+                }
+            })
         })
     });
     initIngredients();
