@@ -3,10 +3,14 @@
   font-size: 35px;
   font-weight: bold;
   text-align: center;
-  background-color: #00b3b3;
+  background-color:#00d1b2;
   padding: 30px;
   color: white;
   margin-bottom: 30px;
+}
+
+#search-div {
+    margin: auto;
 }
 
 #search-bar{
@@ -21,7 +25,7 @@
 }
 
 #pantry-container {
-    width: 300px;
+    max-width: 500px;
 }
 
 #ing-input {
@@ -56,7 +60,7 @@
 }
 
 #recipe-results-container {
-    width: 400px;
+    max-width: 900px;
     margin: 10px;
     padding: 5px;
 }
@@ -71,16 +75,26 @@
 }
 
 #recipe-ing-youtube-container {
-    background-color: gray;
+    max-width: 500px;
     border-radius: 5px;
+}
+
+#recip-ing {
+    background-color: gray;
 }
 
 #video-thmb {
     color: white;
     text-align: center;
-    background-color: #003399;
+    background-color:#00d1b2;
     padding: 15px;
     margin: 10px;
+    border-radius: 5px;
+}
+
+#back-button,
+#next-button {
+    margin: auto;
 }
 
 body {
