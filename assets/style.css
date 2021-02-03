@@ -9,7 +9,6 @@
   margin-bottom: 30px;
 }
 
-
 #pantry-container {
     width: 300px;
 }
@@ -21,7 +20,6 @@
 #ing-here {
     background-color: gray;
     border-radius: 5px;
-    width: 300px;
 }
 
 #recip-button {
@@ -35,16 +33,12 @@
 .ing-card {
   text-transform: capitalize;
   margin: 10px;
-  padding: 5px;
-}
-
-h2 {
-    font-size: 2em;
 }
 
 #recipe-results-container {
     width: 400px;
     margin: 10px;
+    padding: 5px;
 }
 
 #col-2 {
@@ -54,5 +48,17 @@ h2 {
 
 .recipe-card {
     margin: 10px;
+}
 
+#recipe-ing-youtube-container {
+    background-color: gray;
+    border-radius: 5px;
+}
+
+#video-thmb {
+    color: white;
+    text-align: center;
+    background-color: #003399;
+    padding: 15px;
+    margin: 10px;
 }
