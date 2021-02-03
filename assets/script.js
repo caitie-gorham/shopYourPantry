@@ -62,6 +62,7 @@ $(document).ready(function () {
                 recipeCard.attr("class", "box recipe-card")
                 recipeCard.attr("id", i)
                 recipeCard.append(pName)
+                recipeCard.append($("<img>").attr("src", recipeImgURL))
 
 
 
