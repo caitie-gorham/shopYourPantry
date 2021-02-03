@@ -3,10 +3,7 @@ $(document).ready(function () {
     // psuedocode
     var ingredients = [];
     var storedIngredients = JSON.parse(localStorage.getItem("ingredients"));
-    var missingCount
-    var missingName = []
-    var missingPrice = []
-    var missingTotal
+    var missedList = []
     function initIngredients() {
         storedIngredients = JSON.parse(localStorage.getItem("ingredients"));
         if (storedIngredients != null) {
@@ -16,6 +13,11 @@ $(document).ready(function () {
 
         };
     };
+
+    function clearCol3() {
+        $("#recip-ing").text("")
+        $("#youtube-results").text("")
+    }
 
     function writeIngredients() {
         $("#ing-here").text("")
@@ -62,6 +64,7 @@ $(document).ready(function () {
                 recipeCard.attr("class", "box recipe-card")
                 recipeCard.attr("id", i)
                 recipeCard.append(pName)
+                recipeCard.append($("<img>").attr("src", recipeImgURL))
 
 
 
@@ -71,9 +74,25 @@ $(document).ready(function () {
             }
             $(document).on("click", ".recipe-card", function () {
                 var recipeNumb = $(this).attr("id")
-                var missedList = []
                 for (i = 0; i < res[recipeNumb].missedIngredients.length; i++) {
-                    missedList.push(res[recipeNumb].missedIngredients[i].name)
+                    missedList.push(res[recipeNumb].missedIngredients[i])
+                }
+                for (i = 0; i < missedList.length; i++) {
+                    var missedID = missedList[i].id
+                    var missedAmount = missedList[i].amount
+                    var missedUnit = missedList[i].unit
+                    var priceURL = "https://api.spoonacular.com/food/ingredients/" + missedID + "/information?amount=" + missedAmount + "&unit=" + missedUnit + "&apiKey=83b505ff599e49239f3310bad1407b22";
+                    $.ajax({
+                        url: priceURL,
+                        method: "GET"
+                    }).then(function (res) {
+                        var recipIng = $("#recip-ing")
+                        var missedDiv = $("<div>")
+                        var missedCard = $("<p>").text(res.originalName + " $" + ((res.estimatedCost.value) / 100).toFixed(2))
+                        missedCard.attr("class", "box missed-card")
+                        missedDiv.append(missedCard)
+                        recipIng.prepend(missedDiv)
+                    })
                 }
                 console.log(missedList)
             })
@@ -90,7 +109,7 @@ $(document).ready(function () {
 
     $(document).on("click", ".recipe-card", function () {
         // generate list of ingredients still needed 
-
+        clearCol3()
         // ajax API call for YouTube API to populate $("#video-thmb")
         let recipeName = $(this).text()
         $.ajax({
