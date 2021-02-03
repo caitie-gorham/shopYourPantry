@@ -38,6 +38,11 @@
   padding: 5px;
 }
 
+.missed-card {
+  text-transform: capitalize;
+
+}
+
 h2 {
     font-size: 2em;
 }
