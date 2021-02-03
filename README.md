@@ -9,7 +9,9 @@
 
 ## Overview
 
-[put screenshot here]
+
+
+![Alt text](./assets/shopYourPantry.png?raw=true "SYP Logo")
 
 The Shop Your Pantry application allows users to input a list of ingredients they already have in their panty and use those ingredients to generate a list of recipes that incorporate the incredients. The user can then click on each recipe to find what ingredients they'll need to find and a companion YouTube video for the recipe. 
 
