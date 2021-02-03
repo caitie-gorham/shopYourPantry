@@ -41,7 +41,9 @@
 }
 
 #clear-results-button {
-    margin: auto;
+    margin-right: auto;
+    position: relative;
+    left: 9.5px;
 }
 
 .ing-card {
