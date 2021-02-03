@@ -9,6 +9,16 @@
   margin-bottom: 30px;
 }
 
+#search-bar{
+    font-family: montserrat;
+    font-size: 25px;
+    font-weight: lighter;
+    text-align: left;
+    background-color: #e2159e;
+    padding: 20px;
+    color: white;
+    margin-bottom: 30px;
+}
 
 #pantry-container {
     width: 300px;
