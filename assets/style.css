@@ -35,7 +35,9 @@
 }
 
 #recip-button {
-    margin: auto;
+    margin-right: auto;
+    position: relative;
+    left: 9.5px;
 }
 
 #clear-results-button {
@@ -69,5 +71,9 @@ h2 {
 
 .recipe-card {
     margin: 10px;
+
+}
+ 
+body{ background-image: url("shopYourPantry.png");
 
 }
