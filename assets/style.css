@@ -14,11 +14,12 @@
     font-size: 25px;
     font-weight: lighter;
     text-align: left;
-    background-color: #e2159e;
+    background-color: gray;
     padding: 20px;
     color: white;
     margin-bottom: 30px;
 }
+
 #pantry-container {
     width: 300px;
 }
@@ -32,10 +33,12 @@
     border-radius: 5px;
 }
 
+#recipe-search {
+    margin: auto;
+}
+
 #recip-button {
-    margin-right: auto;
-    position: relative;
-    left: 9.5px;
+    margin: auto;
 }
 
 #clear-results-button {
@@ -50,7 +53,6 @@
 
 .missed-card {
   text-transform: capitalize;
-
 }
 
 #recipe-results-container {
@@ -81,8 +83,7 @@
     margin: 10px;
 }
 
- 
-body { 
+body {
   background-image: url("shopYourPantry.png");
 }
 
