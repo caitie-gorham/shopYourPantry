@@ -6,6 +6,7 @@
 * [Access](#Access)
 * [User Story](#User-Story)
 * [Details](#Details)
+* [Walk Through](#Walk-Through)
 * [Team](#Team)
 
 ## Overview
@@ -37,6 +38,17 @@ Each of the five recipes returned is clickable within the application. When a us
 The YouTube "companion" video is generated through the Google API and uses the recipe title as the search term for YouTube. It returns a video thumbnail, which is clickable through to the actual video, and the video title. More on the Google API, which is available through the Google Cloud Platform, can be found here: https://console.cloud.google.com/apis. 
 
 This application was created as part of the Georgia Tech Coding Bootcamp that teaches full-stack development. This application was created as the first of three group projects for the class.
+
+## Walk Through
+
+In order to use this application:
+
+1. Enter your ingredients into the ingredients input bar on the left one at a time, pressing "Add Ingredients" in between each entry
+2. Once you have entered all your ingredients, press the "Search Recipes" button
+3. A list of five recipes will appear in the middle of the page that include your ingredients.
+4. Click on any recipe that is of interest to you. Once you click on the recipe, the right-hand side of the page will populate with the ingredients you still need to buy and prices for each ingredient, and a YouTube video based on the recipe title.
+5. You can click through the YouTube search results using the arrow buttons at the bottom. The YouTube video is clickable. 
+6. To start your entire search over, you can click the "Clear Pantry" button. 
 
 ## Team
 
