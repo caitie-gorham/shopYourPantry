@@ -70,6 +70,15 @@
     border-radius: 5px;
 }
 
+p {
+    font-size: xx-large;
+}
+
+img {
+    width: 200px;
+    text-align: right;
+}
+
 .recipe-card {
     margin: 10px;
 }
