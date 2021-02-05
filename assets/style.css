@@ -108,5 +108,14 @@ img {
 
 body {
   background-image: url("shopYourPantry.png");
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: #FFB600;
+}
+
+body, html {
+    height: 100%;
 }
 
