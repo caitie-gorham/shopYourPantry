@@ -55,10 +55,6 @@
   padding: 5px;
 }
 
-.missed-card {
-  text-transform: capitalize;
-}
-
 #recipe-results-container {
     max-width: 900px;
     margin: 10px;
@@ -90,6 +86,16 @@ img {
 
 #recip-ing {
     background-color: gray;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.missed-card {
+    text-transform: capitalize;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 5px;
 }
 
 #video-thmb {
