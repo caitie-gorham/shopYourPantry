@@ -1,7 +1,9 @@
+// document.ready to make everything wait until the page loads
 $(document).ready(function () {
     var ingredients = [];
     var storedIngredients = JSON.parse(localStorage.getItem("ingredients"));
     var missedList = [];
+    // function to list all of the previously added ingredients
     function initIngredients() {
         storedIngredients = JSON.parse(localStorage.getItem("ingredients"));
         if (storedIngredients != null) {
@@ -11,12 +13,12 @@ $(document).ready(function () {
 
         };
     };
-
+    // function used to clear the third column when writing new things to it
     function clearCol3() {
         $("#recip-ing").text("");
         $("#youtube-results").text("");
     };
-
+    // takes new ingredient input and appends it to page in it's own card
     function writeIngredients() {
         $("#ing-here").text("");
         for (i = 0; i < ingredients.length; i++) {
@@ -28,8 +30,9 @@ $(document).ready(function () {
             ingHere.prepend(ingDiv);
         };
     };
-    
+    // click handler for add ingredients button, pushes new ingredients to the ingredients array, stores array in local storage and runs writeIngredients
     $("#ing-button").on("click", function () {
+        // if statement so that blank inputs aren't added to ingredients array
         if ($("#ing-input").val() != "") {
             ingredients.push($("#ing-input").val());
             $("#ing-input").val("");
@@ -39,14 +42,17 @@ $(document).ready(function () {
 
         };
     });
-    
+    // click handler for find recipes button
     $("#recip-button").on("click", function () {
+        // sets the api url to the appropriate search parameters
         var spoonURL = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + ingredients + "&ranking=2&apiKey=83b505ff599e49239f3310bad1407b22";
         $.ajax({
             url: spoonURL,
             method: "GET"
         }).then(function (res) {
+            //reveals column 2
             $("#col-2").attr("class", "column");
+            //for loop to write each recipe to page with it's corresponding picture
             for (i = 0; i < 5; i++) {
                 var recipeCard = $("<div>");
                 let recipeName = res[i].title;
@@ -59,11 +65,14 @@ $(document).ready(function () {
                 recipeCard.append($("<img>").attr("src", recipeImgURL));
                 $("#col-2").prepend(recipeCard);
             };
+            //click handler for choosing a recipe
             $(document).on("click", ".recipe-card", function () {
                 var recipeNumb = $(this).attr("id");
+                //loop to add missing ingredients to the missedList array
                 for (i = 0; i < res[recipeNumb].missedIngredients.length; i++) {
                     missedList.push(res[recipeNumb].missedIngredients[i]);
                 };
+                //loop to call spoonacular for each missing ingredient
                 for (i = 0; i < missedList.length; i++) {
                     var missedID = missedList[i].id;
                     var missedAmount = missedList[i].amount;
@@ -73,6 +82,7 @@ $(document).ready(function () {
                         url: priceURL,
                         method: "GET"
                     }).then(function (res) {
+                        //code to write missing ingredients and prices to page in their own cards
                         var recipIng = $("#recip-ing");
                         var missedDiv = $("<div>");
                         var missedCard = $("<p>").text(res.originalName + " $" + ((res.estimatedCost.value) / 100).toFixed(2));
@@ -84,14 +94,14 @@ $(document).ready(function () {
             });
         });
     });
-
+    //click handler for clear pantry button, clears ingredients array and deletes array from local storage
     $("#clear-results-button").on("click", function () {
         localStorage.removeItem("ingredients");
         ingredients = [];
         $("#ing-here").text("");
         initIngredients();
     });
-
+    //click handler for each recipe to get youtube video info
     $(document).on("click", ".recipe-card", function () {
         clearCol3();
         let recipeName = $(this).text();
@@ -105,9 +115,11 @@ $(document).ready(function () {
                 type: "video"
             }
         }).then(function (response) {
+            //reveals video container and navigation buttons
             $("#recipe-ing-youtube-container").attr("class", "column");
             $("#video-buttons").attr("class", "buttons");
             var n = 0;
+            //function to write current video (n) to page
             function writeVideo() {
                 $("#youtube-results").text("");
                 let vidTitle = response.items[n].snippet.title;
@@ -120,6 +132,7 @@ $(document).ready(function () {
                 $("#youtube-results").append(vidIconDiv, vidTitleDiv);
             };
             writeVideo();
+            //click handlers for video navigation button, changes n depending on the button pressed then runs writeVideo
             $("#back-button").on("click", function () {
                 if (n > 0) {
                     n--;
@@ -138,5 +151,6 @@ $(document).ready(function () {
             });
         });
     });
+    //loads saved ingredients on page load
     initIngredients();
 });
