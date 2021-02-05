@@ -114,7 +114,7 @@ img {
     margin: auto;
 }
 
-body {
+html {
   background-image: url("shopYourPantry.png");
   background-position: center;
   background-repeat: repeat;
