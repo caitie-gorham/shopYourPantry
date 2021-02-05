@@ -61,7 +61,6 @@
 }
 
 #recipe-results-container {
-
     max-width: 900px;
     margin: 10px;
     padding: 5px;
@@ -70,6 +69,15 @@
 #col-2 {
     background-color: gray;
     border-radius: 5px;
+}
+
+p {
+    font-size: xx-large;
+}
+
+img {
+    width: 200px;
+    text-align: right;
 }
 
 .recipe-card {
@@ -88,9 +96,7 @@
 #video-thmb {
     color: white;
     text-align: center;
-
     background-color:#00d1b2;
-
     padding: 15px;
     margin: 10px;
     border-radius: 5px;
