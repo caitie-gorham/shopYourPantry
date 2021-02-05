@@ -1,6 +1,4 @@
 $(document).ready(function () {
-
-    // psuedocode
     var ingredients = [];
     var storedIngredients = JSON.parse(localStorage.getItem("ingredients"));
     var missedList = [];
@@ -30,7 +28,7 @@ $(document).ready(function () {
             ingHere.prepend(ingDiv);
         };
     };
-    // Create local storage to store our user's ingredient list
+    
     $("#ing-button").on("click", function () {
         if ($("#ing-input").val() != "") {
             ingredients.push($("#ing-input").val());
@@ -41,16 +39,14 @@ $(document).ready(function () {
 
         };
     });
-    // create event listener for search button 
-
-    // ajax API call for Spponacular API to populate recipe cards
+    
     $("#recip-button").on("click", function () {
         var spoonURL = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + ingredients + "&ranking=2&apiKey=83b505ff599e49239f3310bad1407b22";
-        $("#col-2").attr("class", "column");
         $.ajax({
             url: spoonURL,
             method: "GET"
         }).then(function (res) {
+            $("#col-2").attr("class", "column");
             for (i = 0; i < 5; i++) {
                 var recipeCard = $("<div>");
                 let recipeName = res[i].title;
@@ -97,9 +93,7 @@ $(document).ready(function () {
     });
 
     $(document).on("click", ".recipe-card", function () {
-        // generate list of ingredients still needed 
         clearCol3();
-        // ajax API call for YouTube API to populate $("#video-thmb")
         let recipeName = $(this).text();
         $.ajax({
             url: "https://www.googleapis.com/youtube/v3/search",
@@ -111,6 +105,7 @@ $(document).ready(function () {
                 type: "video"
             }
         }).then(function (response) {
+            $("#recipe-ing-youtube-container").attr("class", "column");
             $("#video-buttons").attr("class", "buttons");
             var n = 0;
             function writeVideo() {
