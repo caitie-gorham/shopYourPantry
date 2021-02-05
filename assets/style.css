@@ -3,7 +3,6 @@
   font-size: 35px;
   font-weight: bold;
   text-align: center;
-
   background-color:#00d1b2;
   padding: 30px;
   color: white;
@@ -30,7 +29,7 @@
 }
 
 #ing-input {
-    width: 300px;
+    max-width: 300px;
 }
 
 #ing-here {
@@ -61,7 +60,6 @@
 }
 
 #recipe-results-container {
-
     max-width: 900px;
     margin: 10px;
     padding: 5px;
@@ -77,7 +75,7 @@
 }
 
 #recipe-ing-youtube-container {
-    max-width: 500px;
+    max-width: 700px;
     border-radius: 5px;
 }
 
@@ -88,9 +86,7 @@
 #video-thmb {
     color: white;
     text-align: center;
-
     background-color:#00d1b2;
-
     padding: 15px;
     margin: 10px;
     border-radius: 5px;
