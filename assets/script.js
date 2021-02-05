@@ -45,7 +45,7 @@ $(document).ready(function () {
     // click handler for find recipes button
     $("#recip-button").on("click", function () {
         // sets the api url to the appropriate search parameters
-        var spoonURL = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + ingredients + "&ranking=2&apiKey=83b505ff599e49239f3310bad1407b22";
+        var spoonURL = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + ingredients + "&apiKey=83b505ff599e49239f3310bad1407b22";
         $.ajax({
             url: spoonURL,
             method: "GET"
