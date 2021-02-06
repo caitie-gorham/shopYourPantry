@@ -44,6 +44,8 @@ $(document).ready(function () {
     });
     // click handler for find recipes button
     $("#recip-button").on("click", function () {
+        $("#col-2").text("")
+        clearCol3()
         // sets the api url to the appropriate search parameters
         var spoonURL = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + ingredients + "&apiKey=83b505ff599e49239f3310bad1407b22";
         $.ajax({
@@ -67,7 +69,9 @@ $(document).ready(function () {
             };
             //click handler for choosing a recipe
             $(document).on("click", ".recipe-card", function () {
+                clearCol3()
                 var recipeNumb = $(this).attr("id");
+                missedList = []
                 //loop to add missing ingredients to the missedList array
                 for (i = 0; i < res[recipeNumb].missedIngredients.length; i++) {
                     missedList.push(res[recipeNumb].missedIngredients[i]);
