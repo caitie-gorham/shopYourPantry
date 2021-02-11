@@ -17,9 +17,9 @@ The Shop Your Pantry (SYP) application allows users to input a list of ingredien
 
 ## Access
 
-You can find the deployed webpage here: https://caitlin-emily.github.io/shopYourPantry/
+You can find the deployed webpage here: https://caitie-gorham.github.io/shopYourPantry/
 
-You can find the GitHub repo here: https://github.com/caitlin-emily/shopYourPantry
+You can find the GitHub repo here: https://github.com/caitie-gorham/shopYourPantry
 
 ## User Story
 
